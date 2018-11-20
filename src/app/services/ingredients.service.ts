@@ -1,10 +1,12 @@
 import {Ingredient} from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 export class IngredientsService{
     ingrdientsChanged = new Subject<Ingredient[]>();
     startedEditing= new Subject<number>();
+    @ViewChild('f') slForm:NgForm;
      ingredients: Ingredient[] = [       
     new Ingredient('Tomatoes',5),
     new Ingredient('Apples',3)
@@ -26,6 +28,14 @@ export class IngredientsService{
         this.ingrdientsChanged.next(this.ingredients.slice());
 
     }
+    delateIngredient(index: number){
+        this.ingredients.splice(index,1);
+        this.ingrdientsChanged.next(this.ingredients.slice());
+
+    }
+    clear(){
+        this.slForm.reset();
+    }
     addIngredients(auxIngredients:Ingredient[]){
         for(const i of auxIngredients){
             
@@ -44,5 +54,6 @@ export class IngredientsService{
         this.ingrdientsChanged.next(this.ingredients.slice());
         console.table(this.ingredients);
     }
+    
     
 }
