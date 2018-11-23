@@ -25,5 +25,11 @@ export class RecipesDetailComponent implements OnInit {
   onEditRecipe(){
     this.router.navigate(['edit'],{relativeTo:this.route})
   }
-
+  onDelateRecipe(){
+    this.route.params.subscribe((param:Params) =>{
+      this.id = +param['id'];
+      this.recipeService.onDelateRecipe(this.id);
+      this.router.navigate(['../'],{relativeTo:this.route});
+  });
+  }
 }
