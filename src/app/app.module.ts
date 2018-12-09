@@ -16,6 +16,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { FormStyle } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RecipeServices } from './services/recipe.service';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RecipeServices } from './services/recipe.service';
     RecipesItemComponent,
     ShoppingEditComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
