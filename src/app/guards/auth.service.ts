@@ -19,7 +19,7 @@ export class AuthService {
 
   }
   logout(): boolean {
-    return this.isloggedIn = false;
+    return this.isloggedIn=false;
    }
   isUserLoggdIn(){
     return this.isloggedIn;

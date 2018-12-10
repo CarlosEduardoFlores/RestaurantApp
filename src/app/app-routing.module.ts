@@ -15,15 +15,17 @@ const routes: Routes=[
     },
     
     {
-        path: 'recipes', component:RecipesComponent,canActivate:[AuthGuard]
+        path: 'recipes', component:RecipesComponent
+
         ,children:[
+            {path: 'signin', component: SigninComponent},
              {path:'', component: RecipeStartComponent},
              {path:'new', component:RecipeEditComponent},
             { path:':id', component: RecipesDetailComponent},
             { path:':id/edit', component: RecipeEditComponent},
             
 
-            ]
+            ],canActivate:[AuthGuard]
     },
     {
         path: 'shoppinglist', component:ShoppingListComponent
