@@ -9,7 +9,8 @@
     
     <li class="nav-item"><a  style="cursor:pointer;"class="nav-link" routerLink="/recipes" roterLinkActive="active">Recipes</a></li>
     <li class="nav-item"><a style="cursor:pointer;" class="nav-link" routerLink="/shoppinglist" roterLinkActive="active">Shopping List</a></li>
-    <li class="nav-item"><a  style="cursor:pointer;"class="nav-link" routerLink="/signin" roterLinkActive="active">LogIn</a></li>
+   
+    
     <!--</ul>
   <ul class="navbar-nav navbar-collapse justify-content-end">-->
     <li class="nav-item dropdown"  >
@@ -21,6 +22,9 @@
       <a class="dropdown-item">Fetch Data</a>
     </div>
     </li>
-  </ul>
+    <li class="nav-item"><a class="nav-link" *ngIf="!authService.isUserLoggdIn()" routerLink ="/login">Login</a></li>
+    <li class="nav-item"><a class="nav-link" *ngIf="authService.isUserLoggdIn()" routerLink ="/recipes" (click)="onLoguot()">Logout</a></li>
+  
+    </ul>
 </div>
 </nav>
